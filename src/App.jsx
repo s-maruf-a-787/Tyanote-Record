@@ -237,20 +237,23 @@ export default function App() {
         <section className="mb-8">
       <h2 className="text-2xl font-semibold mb-4">Total Invest</h2>
 
-      {/* Select Type */}
-      <div className="flex gap-4 mb-4">
-        <label className="mr-3 font-medium">Select Cost Category: </label>
+      {/* Select Cost Category */}
+      <div className="flex flex-col xxl:flex-row xxl:item-center gap-4 mb-4">
+        <div className="flex items-center gap-2">
+        <label className="font-medium whitespace-nowrap">Select Cost Category: </label>
         <select
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="border p-2 rounded"
+          className="border p-2 rounded-lg"
         >
           <option value="before-launch">Before Launch</option>
           <option value="after-launch">After Launch</option>
         </select> 
+        </div>
 
         {/* Select Role */}
-        <label className="mr-3 font-medium">Select Role: </label>
+        <div className="flex items-center xxl:flex-row xxl:items-center gap-2">
+        <label className="font-medium whitespace-nowrap">Select Role: </label>
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
@@ -263,6 +266,7 @@ export default function App() {
             </option>
           ))}
         </select>
+        </div>
       </div>
 
       {/* Output Section */}
@@ -302,7 +306,7 @@ export default function App() {
 
         {/* Step Selector */}
         <div className="mb-4">
-          <label className="mr-3 font-medium">Select Step: </label>
+          <label className="font-medium whitespace-nowrap">Select Step: </label>
           <select
             value={step}
             onChange={(e) => setStep(e.target.value)}
@@ -331,7 +335,7 @@ export default function App() {
           <hr className="my-2" />
           <p className="font-bold">Total: ${totalInvestment}</p>
           <p className="font-bold text-green-600">
-            In BDT: {totalInBDT.toLocaleString()} ৳
+            BDT {totalInBDT.toLocaleString()}
           </p>
         </div>
       </section>
@@ -342,7 +346,7 @@ export default function App() {
 
         {/* Role Selector */}
         <div className="mb-4">
-          <label className="mr-3 font-medium">Select Role: </label>
+          <label className="font-medium whitespace-nowrap">Select Role: </label>
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
@@ -387,7 +391,7 @@ export default function App() {
 
         {/* Revenue Selector */}
         <div className="mb-4">
-          <label className="mr-3 font-medium">Select Profit Type: </label>
+          <label className="font-medium whitespace-nowrap">Select Profit Type: </label>
           <select
             value={profitType}
             onChange={(e) => setProfitType(e.target.value)}
@@ -419,7 +423,7 @@ export default function App() {
 
         {/* Revenue Selector */}
         <div className="mb-4">
-          <label className="mr-3 font-medium">Select Role: </label>
+          <label className="font-medium whitespace-nowrap">Select Role: </label>
           <select
             value={selectedRoles}
             onChange={(e) => setSelectedRoles(e.target.value)}
