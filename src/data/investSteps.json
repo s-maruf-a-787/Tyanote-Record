@@ -1,0 +1,23 @@
+{
+  "1st step": {
+    "deadline": "2025-10-01",
+    "expenses": [
+      { "label": "MVP Design", "usd": 600 },
+      { "label": "Prototype Backend", "usd": 400 }
+    ]
+  },
+  "2nd step": {
+    "deadline": "2026-02-01",
+    "expenses": [
+      { "label": "Beta Launch Marketing", "usd": 800 },
+      { "label": "Scale Server", "usd": 200 }
+    ]
+  },
+  "Final step": {
+    "deadline": "2026-06-01",
+    "expenses": [
+      { "label": "Public Release Campaign", "usd": 1200 },
+      { "label": "Legal & Compliance", "usd": 300 }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "oneTime": [
+    { "label": "Company Registration", "usd": 350 },
+    { "label": "Initial Branding", "usd": 500 }
+  ],
+  "perMonth": [
+    { "label": "Server (VPS)", "usd": 20 },
+    { "label": "DB Hosting", "usd": 10 },
+    { "label": "Email/Domain Tools", "usd": 8 }
+  ],
+  "perYear": [
+    { "label": "Domain Renewal", "usd": 12 },
+    { "label": "Apple Dev (optional)", "usd": 99 },
+    { "label": "Google Play (one-time)", "usd": 25 }
+  ]
+}

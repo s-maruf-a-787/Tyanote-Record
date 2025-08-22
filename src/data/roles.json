@@ -1,0 +1,8 @@
+[
+  { "role": "Founder", "pct": 30 },
+  { "role": "Co-Founder", "pct": 25 },
+  { "role": "CEO", "pct": 15 },
+  { "role": "UI/UX Designer", "pct": 12 },
+  { "role": "Researcher", "pct": 10 },
+  { "role": "Engineer", "pct": 8 }
+]

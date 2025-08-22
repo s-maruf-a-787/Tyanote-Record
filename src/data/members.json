@@ -1,0 +1,8 @@
+[
+  { "name": "Maruf", "role": "Founder" },
+  { "name": "Ayesha", "role": "Co-Founder" },
+  { "name": "Nusrat", "role": "UI/UX Designer" },
+  { "name": "Rahim", "role": "Researcher" },
+  { "name": "Tanvir", "role": "CEO" },
+  { "name": "Rafi", "role": "Engineer" }
+]
