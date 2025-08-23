@@ -237,7 +237,7 @@ const [theme, setTheme] = useState(
   return (
     <div className="min-h-screen bg-gray-100  max-w-7xl mx-auto p-6 dark:bg-gray-900 dark:text-white">
       <h1 className=" font-bold text-blue-600 mb-6 flex justify-between">
-        <span className="flex flex-row gap-1 text-3xl xs:text-2xl xs:mt-1"> <img src="Tyanote_Logo.png" alt="" className="h-8 w-8 mt-0.5" />
+        <span className="flex flex-row gap-1 text-3xl xs:text-2xl xs:mt-2"> <img src="Tyanote_Logo.png" alt="" className="h-8 w-8 mt-0.5" />
           <span>Tyanote Dashboard</span>
         </span>
         <button
