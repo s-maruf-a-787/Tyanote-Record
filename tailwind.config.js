@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xxl': '1425px', // custom breakpoint
+        'xxl': '1425px',
+        'xs': {max:'410px'}, 
       },
     },
   },
