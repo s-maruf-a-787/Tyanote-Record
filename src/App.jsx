@@ -1,7 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Sun, Moon, Users, Wallet, ClipboardList, ChartNoAxesCombined, Waypoints, Split, LayoutList } from "lucide-react";
+
+
+
 
 export default function App() {
 
+
+
+const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
+
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
 
 
@@ -14,6 +29,54 @@ export default function App() {
     { name: "Rupom Rahman", role: "QA Enginner" },
     { name: "Adel Bin Hossain", role: "Researcher" },
   ];
+
+
+
+
+    // ---------- Account Data ----------
+    const [accountType, setAccountType] = useState("founder");
+
+    const accounts = {
+    "founder": [
+    { balance: "8,850.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "8,850.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "co-founder": [
+    { balance: "14,750.00", status: "Total Payable" },
+    { balance: "2,250.00", status: "Total Paid" },
+    { balance: "12,500.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "ceo": [
+    { balance: "11,800", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "11,800.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "ui/ux": [
+    { balance: "16,970.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "16,970.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "qa": [
+    { balance: "18,450.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "18,450.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "researcher": [
+    { balance: "2,950.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "2,950.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+
+};
+
+
 
 
 
@@ -99,8 +162,8 @@ export default function App() {
     "Founder": 12,
     "Co-Founder": 20,
     "CEO": 16,
-    "UI/UX Designer": 24,
-    "QA Enginner": 24,
+    "UI/UX Designer": 23,
+    "QA Enginner": 25,
     "Researcher": 4,
     
   };
@@ -113,9 +176,9 @@ export default function App() {
 
 
 
-    // ---------- Total User Wise Investment ----------
+    // ---------- Total Investment Section----------
 
-  const [type, setType] = useState("before-launch");  // FIXED
+  const [type, setType] = useState("before-launch");  
   const [role, setRole] = useState("");
 
   const costCategory =
@@ -156,8 +219,8 @@ export default function App() {
     "Co-Founder": 24,
     "CEO": 18,
     "UI/UX Designer": 14,
-    "QA Enginner": 10,
-    "Researcher": 5,
+    "QA Enginner": 11,
+    "Researcher": 4,
     
   };
 
@@ -169,11 +232,23 @@ export default function App() {
 
 
 
+
+
   return (
-    <div className="min-h-screen bg-gray-100  max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">
-        Tyanote Dashboard 
+    <div className="min-h-screen bg-gray-100  max-w-7xl mx-auto p-6 dark:bg-gray-900 dark:text-white">
+      <h1 className="text-3xl font-bold text-blue-600 mb-6 flex justify-between">
+        <span className="flex flex-row gap-1"> <img src="Tyanote_Logo.png" alt="" className="h-8 w-8 mt-0.5" />
+          <span>Tyanote Dashboard</span>
+        </span>
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white shadow"
+        >
+      {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+        </button>
       </h1>
+
+
 
 
 
@@ -181,15 +256,55 @@ export default function App() {
 
       {/* Members Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">👥 Team Members</h2>
+        <h2 className="text-2xl font-semibold flex item-center mb-4 gap-2 leading-none"><Users className="w-6 h-6" /> Team Members</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {members.map((m, i) => (
             <div
               key={i}
-              className="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition"
+              className="p-4 bg-white dark:bg-black  rounded-2xl shadow hover:shadow-lg transition dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             >
-              <h3 className="font-bold text-lg">{m.name}</h3>
-              <p className="text-gray-600">{m.role}</p>
+              <h3 className="font-bold text-xl">{m.name}</h3>
+              <p className="text-gray-500">{m.role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
+<hr className="my-2" />
+
+
+
+      {/* Account Section */}
+      <section className="mb-8 mt-6">
+        <h2 className="text-2xl font-semibold mb-4 flex item-center gap-2 leading-none"><Wallet className="w-6 h-6" /> Account Details</h2>
+        
+        <div className="mb-4 ">
+          <label className="font-medium whitespace-nowrap">Select Role: </label>
+          <select
+            value={accountType}
+            onChange={(e) => setAccountType(e.target.value)}
+            className="p-2 border rounded-lg text-gray-900 dark:bg-black dark:text-gray-300"
+          >
+            <option value="founder">Founder</option>
+            <option value="co-founder">Co-Founder</option>
+            <option value="ceo">CEO</option>
+            <option value="ui/ux">UI/UX Designer</option>
+            <option value="qa">QA Engineer</option>
+            <option value="researcher">Researcher</option>
+          </select>
+        </div>
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+          {accounts[accountType].map((m, i) => (
+            <div
+              key={i}
+              className="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-black dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            >
+              <h3 className="font-bold text-3xl dark:text-green-600">{m.balance}</h3>
+              <p className="text-gray-500">{m.status}</p>
             </div>
           ))}
         </div>
@@ -198,19 +313,23 @@ export default function App() {
 
 
 
+<hr className="my-2" />
+
+
+
+
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
           {/* Cost Section */}
         <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">💰 Project Costs List</h2>
+        <h2 className="text-2xl font-semibold mb-4 flex item-center gap-2 leading-none"><ClipboardList className="w-6 h-6" /> Project Costs List</h2>
 
-        {/* Cost Selector */}
         <div className="mb-4">
           <label className="mr-3 font-medium">Select Cost Type: </label>
           <select
             value={costType}
             onChange={(e) => setCostType(e.target.value)}
-            className="p-2 border rounded-lg"
+            className="p-2 border rounded-lg dark:bg-black dark:text-gray-300"
           >
             <option value="one-time">One Time</option>
             <option value="per-month">Per Month</option>
@@ -218,46 +337,43 @@ export default function App() {
           </select>
         </div>
 
-        {/* Cost List */}
-        <div className="bg-white p-4 rounded-2xl shadow">
+        <div className="bg-white dark:bg-black p-4 rounded-2xl shadow">
           <ul className="space-y-2">
             {selectedCosts.map((c, i) => (
-              <li key={i} className="flex justify-between items-center gap-6 hover:bg-blue-100 hover:shadow rounded-lg p-2 transition">
+              <li key={i} className="flex justify-between items-center gap-6 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg p-2 transition">
                 <span>{c.item}</span>
                 <span>${c.amount}</span>
               </li>
             ))}
           </ul>
           <hr className="my-2" />
-          <p className="font-bold">Total: ${totalCost}</p>
+          <p className="font-bold">Total: <span className="text-blue-600">${totalCost}</span></p>
         </div>
         </section>
 
           {/* Total Investment Section */}
         <section className="mb-8">
-      <h2 className="text-2xl font-semibold mb-4">Total Invest</h2>
+      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 leading-none"> <ChartNoAxesCombined className="w-6 h-6" />Total Invest</h2>
 
-      {/* Select Cost Category */}
       <div className="flex flex-col xxl:flex-row xxl:item-center gap-4 mb-4">
         <div className="flex items-center gap-2">
         <label className="font-medium whitespace-nowrap">Select Cost Category: </label>
         <select
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="border p-2 rounded-lg"
+          className="border p-2 rounded-lg dark:bg-black dark:text-gray-300"
         >
           <option value="before-launch">Before Launch</option>
           <option value="after-launch">After Launch</option>
         </select> 
         </div>
 
-        {/* Select Role */}
         <div className="flex items-center xxl:flex-row xxl:items-center gap-2">
         <label className="font-medium whitespace-nowrap">Select Role: </label>
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
-          className="border p-2 rounded"
+          className="border p-2 rounded dark:bg-black dark:text-gray-300"
         >
           <option value="">Select Role</option>
           {Object.keys(rolePercentages).map((r) => (
@@ -269,11 +385,10 @@ export default function App() {
         </div>
       </div>
 
-      {/* Output Section */}
       {role && (
-        <div className="mt-4 bg-white p-4 rounded-2xl shadow">
+        <div className="mt-4 bg-white p-4 rounded-2xl shadow dark:bg-black">
           <h3 className="font-semibold mb-2">{role}
-          <ul className="list-disc list-inside text-gray-700">
+          <ul className="list-disc list-inside text-gray-500 ">
             {members
               .filter((m) => m.role === role)
               .map((m, i) => (
@@ -283,12 +398,13 @@ export default function App() {
           </h3>
 
           <div className="mt-4">
-            <p className="font-medium">Total Cost ({type}): ${totalCosts}</p>
+            <p className="font-medium">Total Cost ({type}): <span className="text-blue-600">${totalCosts}</span></p>
             <p>
               {role} Contribution ({rolePercentages[role]}%):{" "}
               <span className="font-bold">
-                ${contribution.toFixed(2)} / BDT{" "}
-                {(contribution * exchangeRate).toFixed(0)}
+                <span className="text-blue-600">${contribution.toFixed(2)} </span> 
+                 /  
+                <span className="text-green-600"> BDT{" "}{(contribution * exchangeRate).toFixed(0)}</span>
               </span>
             </p>
           </div>
@@ -299,10 +415,15 @@ export default function App() {
 
 
 
+<hr className="my-2" />
+
+
+
+
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
       {/* Investment Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">📊 Investment Steps</h2>
+        <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 leading-none"><Waypoints className="w-6 h-6" /> Investment Steps</h2>
 
         {/* Step Selector */}
         <div className="mb-4">
@@ -310,7 +431,7 @@ export default function App() {
           <select
             value={step}
             onChange={(e) => setStep(e.target.value)}
-            className="p-2 border rounded-lg"
+            className="p-2 border rounded-lg dark:bg-black dark:text-gray-300"
           >
             <option value="1st">1st Step</option>
             <option value="2nd">2nd Step</option>
@@ -319,30 +440,27 @@ export default function App() {
         </div>
 
         {/* Step Details */}
-        <div className="bg-white p-4 rounded-2xl shadow">
+        <div className="bg-white p-4 dark:bg-black rounded-2xl shadow">
           <p className="font-bold mb-2">
             Deadline:{" "}
             <span className="text-red-500">{selectedStep.deadline}</span>
           </p>
           <ul className="space-y-2">
             {selectedStep.expenses.map((e, i) => (
-              <li key={i} className="flex justify-between items-center gap-6 hover:bg-blue-100 hover:shadow rounded-lg p-2 transition">
+              <li key={i} className="flex justify-between items-center gap-6 hover:bg-gray-100 dark:hover:bg-gray-900 hover:shadow rounded-lg p-2 transition">
                 <span>{e.item}</span>
                 <span>${e.amount}</span>
               </li>
             ))}
           </ul>
           <hr className="my-2" />
-          <p className="font-bold">Total: ${totalInvestment}</p>
-          <p className="font-bold text-green-600">
-            BDT {totalInBDT.toLocaleString()}
-          </p>
+          <p className="font-bold">Total: <span className="text-blue-600">${totalInvestment}</span> / <span className="text-green-600">BDT {totalInBDT.toLocaleString()}</span></p>
         </div>
       </section>
 
       {/* Investor Contribution Section */}
       <section className="mb-8"> 
-      <h2 className="text-2xl font-semibold mb-4">🤝 Investor Contribution</h2>
+      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 leading-none"><Split className="w-6 h-6" /> Investor Contribution</h2>
 
         {/* Role Selector */}
         <div className="mb-4">
@@ -350,7 +468,7 @@ export default function App() {
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
-            className="p-2 border rounded-lg"
+            className="p-2 border rounded-lg dark:bg-black dark:text-gray-300"
           >
             {Object.keys(rolePercentages).map((role) => (
               <option key={role} value={role}>
@@ -360,8 +478,7 @@ export default function App() {
           </select>
         </div>
 
-        {/* Contribution Output */}
-        <div className="bg-white p-4 rounded-2xl shadow">
+        <div className="bg-white p-4 rounded-2xl shadow dark:bg-black">
           <p>
             <span className="font-bold">{selectedRole}</span> should invest:
           </p>
@@ -377,9 +494,12 @@ export default function App() {
         </div>
       </section>
 
- 
     </section>
 
+
+
+
+<hr className="my-2" />
 
 
 
@@ -387,7 +507,7 @@ export default function App() {
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           {/* Revenue Section */}
         <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">💰 Revenue List</h2>
+        <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 leading-none"><LayoutList className="w-6 h-6" /> Revenue List</h2>
 
         {/* Revenue Selector */}
         <div className="mb-4">
@@ -395,31 +515,31 @@ export default function App() {
           <select
             value={profitType}
             onChange={(e) => setProfitType(e.target.value)}
-            className="p-2 border rounded-lg"
+            className="p-2 border rounded-lg dark:bg-black dark:text-gray-300"
           >
             <option value="one-time">One Time</option>
 
           </select>
         </div>
         {/* Revenue Selector */}
-        <div className="bg-white p-4 rounded-2xl shadow">
+        <div className="bg-white dark:bg-black p-4 rounded-2xl shadow">
           <ul className="space-y-2">
             {revenue.map((c, i) => (
-              <li key={i} className="flex justify-between items-center gap-6 hover:bg-blue-100 hover:shadow rounded-lg p-2 transition">
+              <li key={i} className="flex justify-between items-center gap-6 hover:bg-gray-100 dark:hover:bg-gray-900 hover:shadow rounded-lg p-2 transition">
                 <span>{c.item}</span>
                 <span>${c.amount}</span>
               </li>
             ))}
           </ul>
           <hr className="my-2" />
-          <p className="font-bold">Total: ${totalRevenue}</p>
+          <p className="font-bold">Total: <span className="text-blue-600">${totalRevenue}</span></p>
         </div>
         </section>
 
 
           {/* Revenue Contribution Section */}
       <section className="mb-8"> 
-      <h2 className="text-2xl font-semibold mb-4">🤝 Revenue Contribution</h2>
+      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 leading-none"><Split className="w-6 h-6" /> Revenue Contribution</h2>
 
         {/* Revenue Selector */}
         <div className="mb-4">
@@ -427,7 +547,7 @@ export default function App() {
           <select
             value={selectedRoles}
             onChange={(e) => setSelectedRoles(e.target.value)}
-            className="p-2 border rounded-lg"
+            className="p-2 border rounded-lg dark:bg-black dark:text-gray-300"
           >
             {Object.keys(revenuePercentages).map((role) => (
               <option key={role} value={role}>
@@ -438,7 +558,7 @@ export default function App() {
         </div>
 
         {/* Contribution Output */}
-        <div className="bg-white p-4 rounded-2xl shadow">
+        <div className="bg-white dark:bg-black p-4 rounded-2xl shadow">
           <p>
             <span className="font-bold">{selectedRoles}</span> will receive:
           </p>
@@ -457,9 +577,7 @@ export default function App() {
 
 
 
-      
-
-
+    
     </div>
   );
 }
