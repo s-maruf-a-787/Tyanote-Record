@@ -25,8 +25,7 @@ const [theme, setTheme] = useState(
     { name: "Md. Noyon Hassan", role: "Founder" },
     { name: "Sheikh Maruf Ahammed", role: "Co-Founder" },
     { name: "Sharif Md Shafiul Akbar", role: "CEO" },
-    { name: "Md. Rifat Islam", role: "UI/UX Designer" },
-    { name: "Rupom Rahman", role: "QA Enginner" },
+    { name: "Md. Omor Faruque Abir", role: "Business Analyst" },
     { name: "Adel Bin Hossain", role: "Researcher" },
   ];
 
@@ -38,33 +37,27 @@ const [theme, setTheme] = useState(
 
     const accounts = {
     "founder": [
-    { balance: "8,850.00", status: "Total Payable" },
+    { balance: "14,750.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "8,850.00", status: "Total Due" },
+    { balance: "14,750.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "co-founder": [
-    { balance: "14,750.00", status: "Total Payable" },
+    { balance: "18,450.00", status: "Total Payable" },
     { balance: "2,250.00", status: "Total Paid" },
-    { balance: "12,500.00", status: "Total Due" },
+    { balance: "16,200.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "ceo": [
-    { balance: "11,800", status: "Total Payable" },
+    { balance: "16,950.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "11,800.00", status: "Total Due" },
+    { balance: "16,950.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
-    "ui/ux": [
-    { balance: "16,970.00", status: "Total Payable" },
+    "business analyst": [
+    { balance: "20,650.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "16,970.00", status: "Total Due" },
-    { balance: "00.00", status: "Total Revenue" },
-  ],
-    "qa": [
-    { balance: "18,450.00", status: "Total Payable" },
-    { balance: "00.00", status: "Total Paid" },
-    { balance: "18,450.00", status: "Total Due" },
+    { balance: "20,650.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "researcher": [
@@ -159,11 +152,10 @@ const [theme, setTheme] = useState(
 
   // ---------- Investor Contribution ----------
   const rolePercentages = {
-    "Founder": 12,
-    "Co-Founder": 20,
-    "CEO": 16,
-    "UI/UX Designer": 23,
-    "QA Enginner": 25,
+    "Founder": 20,
+    "Co-Founder": 25,
+    "CEO": 23,
+    "Business Analyst": 28,
     "Researcher": 4,
     
   };
@@ -215,12 +207,11 @@ const [theme, setTheme] = useState(
 
    // ---------- Revenue Contribution ----------
   const revenuePercentages = {
-    "Founder": 30,
-    "Co-Founder": 24,
-    "CEO": 18,
-    "UI/UX Designer": 14,
-    "QA Enginner": 11,
-    "Researcher": 4,
+    "Founder": 32,
+    "Co-Founder": 26,
+    "CEO": 20,
+    "Business Analyst": 17,
+    "Researcher": 5,
     
   };
 
@@ -290,8 +281,7 @@ const [theme, setTheme] = useState(
             <option value="founder">Founder</option>
             <option value="co-founder">Co-Founder</option>
             <option value="ceo">CEO</option>
-            <option value="ui/ux">UI/UX Designer</option>
-            <option value="qa">QA Engineer</option>
+            <option value="business analyst">Business Analyst</option>
             <option value="researcher">Researcher</option>
           </select>
         </div>
