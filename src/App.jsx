@@ -26,7 +26,9 @@ const [theme, setTheme] = useState(
     { name: "Sheikh Maruf Ahammed", role: "Co-Founder" },
     { name: "Sharif Md Shafiul Akbar", role: "CEO" },
     { name: "Md. Omor Faruque Abir", role: "Business Analyst" },
-    { name: "Adel Bin Hossain", role: "Researcher" },
+    { name: "Adel Bin Hossain", role: "Lead Researcher" },
+    { name: "Md. Mihad Hassan", role: "Content Writer" },
+    { name: "Golam Rasul Orin", role: "Junior Researcher" },
   ];
 
 
@@ -37,33 +39,45 @@ const [theme, setTheme] = useState(
 
     const accounts = {
     "founder": [
-    { balance: "14,750.00", status: "Total Payable" },
+    { balance: "7,350.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "14,750.00", status: "Total Due" },
+    { balance: "7,350.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "co-founder": [
-    { balance: "18,450.00", status: "Total Payable" },
+    { balance: "11,800.00", status: "Total Payable" },
     { balance: "2,250.00", status: "Total Paid" },
-    { balance: "16,200.00", status: "Total Due" },
+    { balance: "9,550.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "ceo": [
-    { balance: "16,950.00", status: "Total Payable" },
+    { balance: "11,050.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "16,950.00", status: "Total Due" },
+    { balance: "11,050.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "business analyst": [
-    { balance: "20,650.00", status: "Total Payable" },
-    { balance: "00.00", status: "Total Paid" },
-    { balance: "20,650.00", status: "Total Due" },
+    { balance: "14,750.00", status: "Total Payable" },
+    { balance: "46,000.00", status: "Total Paid" },
+    { balance: "-31,250.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
-    "researcher": [
-    { balance: "2,950.00", status: "Total Payable" },
+    "lead researcher": [
+    { balance: "2,200.00", status: "Total Payable" },
     { balance: "00.00", status: "Total Paid" },
-    { balance: "2,950.00", status: "Total Due" },
+    { balance: "2,200.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "content writer": [
+    { balance: "14,000.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "14,000.00", status: "Total Due" },
+    { balance: "00.00", status: "Total Revenue" },
+  ],
+    "junior researcher": [
+    { balance: "14,000.00", status: "Total Payable" },
+    { balance: "00.00", status: "Total Paid" },
+    { balance: "14,000.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
 
@@ -152,11 +166,14 @@ const [theme, setTheme] = useState(
 
   // ---------- Investor Contribution ----------
   const rolePercentages = {
-    "Founder": 20,
-    "Co-Founder": 25,
-    "CEO": 23,
-    "Business Analyst": 28,
-    "Researcher": 4,
+    "Founder": 10,
+    "Co-Founder": 16,
+    "CEO": 15,
+    "Business Analyst": 20,
+    "Lead Researcher": 3,
+    "Content Writer": 18,
+    "Junior Researcher": 18,
+
     
   };
 
@@ -207,11 +224,13 @@ const [theme, setTheme] = useState(
 
    // ---------- Revenue Contribution ----------
   const revenuePercentages = {
-    "Founder": 32,
-    "Co-Founder": 26,
-    "CEO": 20,
-    "Business Analyst": 17,
-    "Researcher": 5,
+    "Founder": 26,
+    "Co-Founder": 20,
+    "CEO": 15,
+    "Business Analyst": 11,
+    "Lead Researcher": 4,
+    "Content Writer": 12,
+    "Junior Researcher": 12,
     
   };
 
@@ -282,7 +301,9 @@ const [theme, setTheme] = useState(
             <option value="co-founder">Co-Founder</option>
             <option value="ceo">CEO</option>
             <option value="business analyst">Business Analyst</option>
-            <option value="researcher">Researcher</option>
+            <option value="lead researcher">Lead Researcher</option>
+            <option value="content writer">Content Writer</option>
+            <option value="junior researcher">Junior Researcher</option>
           </select>
         </div>
 
