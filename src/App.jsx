@@ -46,8 +46,8 @@ const [theme, setTheme] = useState(
   ],
     "co-founder": [
     { balance: "13,900.00", status: "Total Payable" },
-    { balance: "6,250.00", status: "Total Paid" },
-    { balance: "7,650.00", status: "Total Due" },
+    { balance: "21,250.00", status: "Total Paid" },
+    { balance: "-7,350.00", status: "Total Due" },
     { balance: "00.00", status: "Total Revenue" },
   ],
     "ceo": [
